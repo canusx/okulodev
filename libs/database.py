@@ -22,6 +22,10 @@ class Database(object):
             where = " where " + where
         self.cursor.execute("select * from ogrenciler" + where)
         return self.cursor.fetchall()
+    def getNot(self,id):
+
+        self.cursor.execute("select * from ogrenci_not where ogrenci_id = %d" % id)
+        return self.cursor.fetchall()
 
     def create_student(self,name,surname,number,father_name,mother_name,birth_place,birth_date,nots=[],file=None):
         """
